@@ -29,204 +29,65 @@
   </details>
 </div>
 
-# Claude Code Subagents Collection
+# Flutter Mobile Development Agents
 
-A comprehensive collection of specialized AI subagents for [Claude Code](https://docs.anthropic.com/en/docs/claude-code), designed to enhance development workflows with domain-specific expertise.
+A curated collection of specialized AI subagents for [Claude Code](https://docs.anthropic.com/en/docs/claude-code), specifically focused on Flutter Android/iOS mobile app development workflows.
 
 ## Overview
 
-This repository contains 75 specialized subagents that extend Claude Code's capabilities. Each subagent is an expert in a specific domain, automatically invoked based on context or explicitly called when needed. All agents are configured with specific Claude models based on task complexity for optimal performance and cost-effectiveness.
+This repository contains 11 specialized subagents tailored for Flutter mobile development. Each subagent is an expert in a specific aspect of mobile app development, automatically invoked based on context or explicitly called when needed. All agents are configured with appropriate Claude models based on task complexity.
 
 ## Available Subagents
 
-### Development & Architecture
-- **[backend-architect](backend-architect.md)** - Design RESTful APIs, microservice boundaries, and database schemas
-- **[frontend-developer](frontend-developer.md)** - Build React components, implement responsive layouts, and handle client-side state management
-- **[ui-ux-designer](ui-ux-designer.md)** - Create interface designs, wireframes, and design systems
-- **[mobile-developer](mobile-developer.md)** - Develop React Native or Flutter apps with native integrations
-- **[graphql-architect](graphql-architect.md)** - Design GraphQL schemas, resolvers, and federation
-- **[architect-reviewer](architect-review.md)** - Reviews code changes for architectural consistency and patterns
+### Flutter & Mobile Development
+- **[flutter-expert](flutter-expert.md)** - Master Flutter development with Dart, widgets, state management, and platform integrations
+- **[mobile-developer](mobile-developer.md)** - Develop cross-platform mobile apps with native integrations
+- **[ios-developer](ios-developer.md)** - Handle native iOS development and Flutter iOS-specific implementations
+- **[frontend-developer](frontend-developer.md)** - Build responsive UI components and handle client-side state management
+- **[ui-ux-designer](ui-ux-designer.md)** - Create mobile interface designs, wireframes, and design systems
 
-### Language Specialists
-- **[python-pro](python-pro.md)** - Write idiomatic Python code with advanced features and optimizations
-- **[ruby-pro](ruby-pro.md)** - Write idiomatic Ruby code with metaprogramming, Rails patterns, gem development, and testing frameworks
-- **[golang-pro](golang-pro.md)** - Write idiomatic Go code with goroutines, channels, and interfaces
-- **[rust-pro](rust-pro.md)** - Write idiomatic Rust with ownership patterns, lifetimes, and trait implementations
-- **[c-pro](c-pro.md)** - Write efficient C code with proper memory management and system calls
-- **[cpp-pro](cpp-pro.md)** - Write idiomatic C++ code with modern features, RAII, smart pointers, and STL algorithms
-- **[javascript-pro](javascript-pro.md)** - Master modern JavaScript with ES6+, async patterns, and Node.js APIs
-- **[typescript-pro](typescript-pro.md)** - Master TypeScript with advanced types, generics, and strict type safety
-- **[php-pro](php-pro.md)** - Write idiomatic PHP code with modern features and performance optimizations
-- **[java-pro](java-pro.md)** - Master modern Java with streams, concurrency, and JVM optimization
-- **[elixir-pro](elixir-pro.md)** - Write idiomatic Elixir code with OTP patterns, functional programming, and Phoenix frameworks
-- **[csharp-pro](csharp-pro.md)** - Write modern C# code with advanced features and .NET optimization
-- **[scala-pro](scala-pro.md)** - Master enterprise-grade Scala development with functional programming, distributed systems, and big data processing
-- **[flutter-expert](flutter-expert.md)** - Master Flutter development with Dart, widgets, and platform integrations
-- **[unity-developer](unity-developer.md)** - Build Unity games with optimized scripts and performance tuning
-- **[minecraft-bukkit-pro](minecraft-bukkit-pro.md)** - Master Minecraft server plugin development with Bukkit, Spigot, and Paper APIs
-- **[ios-developer](ios-developer.md)** - Develop native iOS applications with Swift/SwiftUI
-- **[sql-pro](sql-pro.md)** - Write complex SQL queries, optimize execution plans, and design normalized schemas
-
-### Infrastructure & Operations
-- **[devops-troubleshooter](devops-troubleshooter.md)** - Debug production issues, analyze logs, and fix deployment failures
-- **[deployment-engineer](deployment-engineer.md)** - Configure CI/CD pipelines, Docker containers, and cloud deployments
-- **[cloud-architect](cloud-architect.md)** - Design AWS/Azure/GCP infrastructure and optimize cloud costs
-- **[database-optimizer](database-optimizer.md)** - Optimize SQL queries, design efficient indexes, and handle database migrations
-- **[database-admin](database-admin.md)** - Manage database operations, backups, replication, and monitoring
-- **[terraform-specialist](terraform-specialist.md)** - Write advanced Terraform modules, manage state files, and implement IaC best practices
-- **[incident-responder](incident-responder.md)** - Handles production incidents with urgency and precision
-- **[network-engineer](network-engineer.md)** - Debug network connectivity, configure load balancers, and analyze traffic patterns
-- **[dx-optimizer](dx-optimizer.md)** - Developer Experience specialist that improves tooling, setup, and workflows
-
-### Quality & Security
-- **[code-reviewer](code-reviewer.md)** - Expert code review with deep configuration security focus and production reliability
-- **[security-auditor](security-auditor.md)** - Review code for vulnerabilities and ensure OWASP compliance
-- **[test-automator](test-automator.md)** - Create comprehensive test suites with unit, integration, and e2e tests
-- **[performance-engineer](performance-engineer.md)** - Profile applications, optimize bottlenecks, and implement caching strategies
+### Code Quality & Testing
+- **[code-reviewer](code-reviewer.md)** - Expert code review with security focus and production reliability
+- **[test-automator](test-automator.md)** - Create comprehensive test suites with unit, integration, and widget tests
 - **[debugger](debugger.md)** - Debugging specialist for errors, test failures, and unexpected behavior
-- **[error-detective](error-detective.md)** - Search logs and codebases for error patterns, stack traces, and anomalies
-- **[search-specialist](search-specialist.md)** - Expert web researcher using advanced search techniques and synthesis
+- **[performance-engineer](performance-engineer.md)** - Profile mobile apps, optimize bottlenecks, and implement caching strategies
+- **[security-auditor](security-auditor.md)** - Review mobile apps for vulnerabilities and ensure security compliance
 
-### Data & AI
-- **[data-scientist](data-scientist.md)** - Data analysis expert for SQL queries, BigQuery operations, and data insights
-- **[data-engineer](data-engineer.md)** - Build ETL pipelines, data warehouses, and streaming architectures
-- **[ai-engineer](ai-engineer.md)** - Build LLM applications, RAG systems, and prompt pipelines
-- **[ml-engineer](ml-engineer.md)** - Implement ML pipelines, model serving, and feature engineering
-- **[mlops-engineer](mlops-engineer.md)** - Build ML pipelines, experiment tracking, and model registries
-- **[prompt-engineer](prompt-engineer.md)** - Optimizes prompts for LLMs and AI systems
+### Documentation & Integration
+- **[api-documenter](api-documenter.md)** - Create API integration documentation and specifications for mobile backends
 
-### Specialized Domains
-- **[api-documenter](api-documenter.md)** - Create OpenAPI/Swagger specs and write developer documentation
-- **[payment-integration](payment-integration.md)** - Integrate Stripe, PayPal, and payment processors
-- **[quant-analyst](quant-analyst.md)** - Build financial models, backtest trading strategies, and analyze market data
-- **[risk-manager](risk-manager.md)** - Monitor portfolio risk, R-multiples, and position limits
-- **[legacy-modernizer](legacy-modernizer.md)** - Refactor legacy codebases and implement gradual modernization
-- **[context-manager](context-manager.md)** - Manages context across multiple agents and long-running tasks
-
-### Documentation
-- **[docs-architect](docs-architect.md)** - Creates comprehensive technical documentation from existing codebases
-- **[mermaid-expert](mermaid-expert.md)** - Create Mermaid diagrams for flowcharts, sequences, ERDs, and architectures
-- **[reference-builder](reference-builder.md)** - Creates exhaustive technical references and API documentation
-- **[tutorial-engineer](tutorial-engineer.md)** - Creates step-by-step tutorials and educational content from code
-
-### Business & Marketing
-- **[business-analyst](business-analyst.md)** - Analyze metrics, create reports, and track KPIs
-- **[content-marketer](content-marketer.md)** - Write blog posts, social media content, and email newsletters
-- **[hp-pro](hp-pro.md)** - Partner for hiring, onboarding/offboarding, PTO and leave, performance, compliant policies, and employee relations.
-- **[sales-automator](sales-automator.md)** - Draft cold emails, follow-ups, and proposal templates
-- **[customer-support](customer-support.md)** - Handle support tickets, FAQ responses, and customer emails
-- **[legal-advisor](legal-advisor.md)** - Draft privacy policies, terms of service, disclaimers, and legal notices
-
-### SEO & Content Optimization
-- **[seo-content-auditor](seo-content-auditor.md)** - Analyzes provided content for quality, E-E-A-T signals, and SEO best practices
-- **[seo-meta-optimizer](seo-meta-optimizer.md)** - Creates optimized meta titles, descriptions, and URL suggestions
-- **[seo-keyword-strategist](seo-keyword-strategist.md)** - Analyzes keyword usage, calculates density, suggests semantic variations
-- **[seo-structure-architect](seo-structure-architect.md)** - Optimizes content structure, header hierarchy, and schema markup
-- **[seo-snippet-hunter](seo-snippet-hunter.md)** - Formats content for featured snippets and SERP features
-- **[seo-content-refresher](seo-content-refresher.md)** - Identifies outdated elements and suggests content updates
-- **[seo-cannibalization-detector](seo-cannibalization-detector.md)** - Analyzes multiple pages for keyword overlap and conflicts
-- **[seo-authority-builder](seo-authority-builder.md)** - Analyzes content for E-E-A-T signals and trust indicators
-- **[seo-content-writer](seo-content-writer.md)** - Writes SEO-optimized content based on keywords and briefs
-- **[seo-content-planner](seo-content-planner.md)** - Creates content outlines, topic clusters, and calendars
 
 ## Model Assignments
 
-All 75 subagents are configured with specific Claude models based on task complexity:
+The 11 Flutter development subagents are configured with specific Claude models based on task complexity:
 
-### 🚀 Haiku (Fast & Cost-Effective) - 15 agents
+### 🚀 Haiku (Fast & Cost-Effective) - 1 agent
 **Model:** `haiku`
-- `data-scientist` - SQL queries and data analysis
-- `api-documenter` - OpenAPI/Swagger documentation
-- `reference-builder` - Exhaustive technical references and API documentation
-- `business-analyst` - Metrics and KPI tracking
-- `content-marketer` - Blog posts and social media
-- `customer-support` - Support tickets and FAQs
-- `sales-automator` - Cold emails and proposals
-- `search-specialist` - Web research and information gathering
-- `legal-advisor` - Privacy policies and compliance documents
-- `seo-meta-optimizer` - Meta title and description optimization
-- `seo-keyword-strategist` - Keyword density and semantic analysis
-- `seo-structure-architect` - Content structure and schema markup
-- `seo-snippet-hunter` - Featured snippet formatting
-- `seo-content-refresher` - Content freshness updates
-- `seo-cannibalization-detector` - Keyword overlap detection
-- `seo-content-planner` - Content calendars and outlines
+- `api-documenter` - API integration documentation and specifications
 
-### ⚡ Sonnet (Balanced Performance) - 44 agents
+### ⚡ Sonnet (Balanced Performance) - 8 agents  
 **Model:** `sonnet`
+- `flutter-expert` - Flutter development with Dart, widgets, state management, and animations
+- `mobile-developer` - Cross-platform mobile app development with native integrations
+- `ios-developer` - Native iOS development and Flutter iOS-specific implementations
+- `frontend-developer` - Responsive UI components and client-side state management
+- `ui-ux-designer` - Mobile interface design, wireframes, and design systems
+- `code-reviewer` - Code quality analysis with security focus
+- `test-automator` - Comprehensive test suites for mobile apps
+- `debugger` - Mobile app debugging and error investigation
 
-**Development & Languages:**
-- `python-pro` - Python development with advanced features
-- `ruby-pro` - Ruby development with metaprogramming, Rails patterns, and gem development
-- `javascript-pro` - Modern JavaScript and Node.js
-- `typescript-pro` - Advanced TypeScript with type systems
-- `golang-pro` - Go concurrency and idiomatic patterns
-- `rust-pro` - Rust memory safety and systems programming
-- `c-pro` - C programming and embedded systems
-- `cpp-pro` - Modern C++ with STL and templates
-- `php-pro` - Modern PHP with advanced features
-- `java-pro` - Modern Java with streams and concurrency
-- `elixir-pro` - Elixir with OTP patterns and Phoenix
-- `csharp-pro` - Modern C# with .NET frameworks and patterns
-- `scala-pro` - Enterprise Scala with Apache Pekko, Akka, Spark, and ZIO/Cats Effect
-- `flutter-expert` - Flutter development with state management and animations
-- `unity-developer` - Unity game development and optimization
-- `minecraft-bukkit-pro` - Minecraft plugin development with Bukkit/Spigot/Paper
-- `ios-developer` - Native iOS development with Swift/SwiftUI
-- `frontend-developer` - React components and UI
-- `ui-ux-designer` - Interface design and wireframes
-- `backend-architect` - API design and microservices
-- `mobile-developer` - React Native/Flutter apps
-- `sql-pro` - Complex SQL optimization
-- `graphql-architect` - GraphQL schemas and resolvers
-
-**Infrastructure & Operations:**
-- `devops-troubleshooter` - Production debugging
-- `deployment-engineer` - CI/CD pipelines
-- `database-optimizer` - Query optimization
-- `database-admin` - Database operations
-- `terraform-specialist` - Infrastructure as Code
-- `network-engineer` - Network configuration
-- `dx-optimizer` - Developer experience
-- `data-engineer` - ETL pipelines
-
-**Quality & Support:**
-- `test-automator` - Test suite creation
-- `code-reviewer` - Code quality analysis
-- `debugger` - Error investigation
-- `error-detective` - Log analysis
-- `ml-engineer` - ML model deployment
-- `legacy-modernizer` - Framework migrations
-- `payment-integration` - Payment processing
-- `mermaid-expert` - Mermaid diagrams and visual documentation
-- `flutter-expert` - Flutter development
-- `seo-content-auditor` - Content quality and E-E-A-T analysis
-- `seo-authority-builder` - Authority signal optimization
-- `seo-content-writer` - SEO-optimized content creation
-
-### 🧠 Opus (Maximum Capability) - 15 agents
+### 🧠 Opus (Maximum Capability) - 2 agents
 **Model:** `opus`
-- `ai-engineer` - LLM applications and RAG systems
-- `security-auditor` - Vulnerability analysis
-- `performance-engineer` - Application optimization
-- `incident-responder` - Production incident handling
-- `mlops-engineer` - ML infrastructure
-- `architect-reviewer` - Architectural consistency
-- `cloud-architect` - Cloud infrastructure design
-- `prompt-engineer` - LLM prompt optimization
-- `context-manager` - Multi-agent coordination
-- `quant-analyst` - Financial modeling
-- `risk-manager` - Portfolio risk management
-- `docs-architect` - Comprehensive technical documentation from codebases
-- `tutorial-engineer` - Step-by-step tutorials and educational content
+- `security-auditor` - Mobile security vulnerability analysis and compliance
+- `performance-engineer` - Mobile app performance optimization and profiling
 
 ## Installation
 
-These subagents are automatically available when placed in `~/.claude/agents/` directory.
+These Flutter development subagents are automatically available when placed in `~/.claude/agents/` directory.
 
 ```bash
 cd ~/.claude
-git clone https://github.com/wshobson/agents.git
+git clone https://github.com/[your-repo]/flutter-agents.git agents
 ```
 
 ## Usage
@@ -237,93 +98,71 @@ Claude Code will automatically delegate to the appropriate subagent based on the
 ### Explicit Invocation
 Mention the subagent by name in your request:
 ```
-"Use the code-reviewer to check my recent changes"
-"Have the security-auditor scan for vulnerabilities"
-"Get the performance-engineer to optimize this bottleneck"
+"Use flutter-expert to implement this custom widget"
+"Have security-auditor scan my app for vulnerabilities"
+"Get performance-engineer to optimize app startup time"
 ```
 
 ## Usage Examples
 
 ### Single Agent Tasks
 ```bash
-# Code quality and review
-"Use code-reviewer to analyze this component for best practices"
-"Have code-reviewer scrutinize these configuration changes"
-"Have security-auditor check for OWASP compliance issues"
+# Flutter development
+"Use flutter-expert to implement a custom animated widget"
+"Have flutter-expert set up state management with Riverpod"
+"Get mobile-developer to add native Android permissions"
 
-# Development tasks  
-"Get backend-architect to design a user authentication API"
-"Use frontend-developer to create a responsive dashboard layout"
+# iOS-specific tasks
+"Use ios-developer to implement native iOS camera integration"
+"Have ios-developer set up push notifications for Flutter"
 
-# Infrastructure and operations
-"Have devops-troubleshooter analyze these production logs"
-"Use cloud-architect to design a scalable AWS architecture"
-"Get network-engineer to debug SSL certificate issues"
-"Use database-admin to set up backup and replication"
+# UI/UX and design
+"Get ui-ux-designer to create a mobile-first design system"
+"Use frontend-developer to implement responsive layouts"
 
-# Data and AI
-"Get data-scientist to analyze this customer behavior dataset"
-"Use ai-engineer to build a RAG system for document search"
-"Have mlops-engineer set up MLflow experiment tracking"
+# Code quality and testing
+"Have code-reviewer analyze this Flutter widget for best practices"
+"Use test-automator to create widget tests for this component"
+"Get debugger to investigate this app crash on Android"
 
-# Business and marketing
-"Have business-analyst create investor deck with growth metrics"
-"Use content-marketer to write SEO-optimized blog post"
-"Get sales-automator to create cold email sequence"
-"Have customer-support draft FAQ documentation"
+# Performance and security
+"Use performance-engineer to optimize app memory usage"
+"Have security-auditor review API integration security"
+
+# Documentation
+"Get api-documenter to document REST API integration"
 ```
 
 ### Multi-Agent Workflows
 
-These subagents work together seamlessly, and for more complex orchestrations, you can use the **[Claude Code Commands](https://github.com/wshobson/commands)** collection which provides 52 pre-built slash commands that leverage these subagents in sophisticated workflows.
+These Flutter subagents work together seamlessly for complex mobile app development tasks:
 
 ```bash
-# Feature development workflow
-"Implement user authentication feature"
-# Automatically uses: backend-architect → frontend-developer → test-automator → security-auditor
+# Flutter app feature development
+"Implement user profile screen with photo upload"
+# Automatically uses: flutter-expert → ui-ux-designer → test-automator → security-auditor
 
-# Performance optimization workflow  
-"Optimize the checkout process performance"
-# Automatically uses: performance-engineer → database-optimizer → frontend-developer
+# Cross-platform optimization workflow
+"Optimize app for both Android and iOS performance"
+# Automatically uses: flutter-expert → ios-developer → performance-engineer
 
-# Production incident workflow
-"Debug high memory usage in production"
-# Automatically uses: incident-responder → devops-troubleshooter → error-detective → performance-engineer
+# UI/UX implementation workflow
+"Build a complete onboarding flow with animations"
+# Automatically uses: ui-ux-designer → flutter-expert → test-automator
 
-# Network connectivity workflow
-"Fix intermittent API timeouts"
-# Automatically uses: network-engineer → devops-troubleshooter → performance-engineer
+# Security and API integration workflow
+"Add secure authentication with biometric login"
+# Automatically uses: security-auditor → flutter-expert → ios-developer → test-automator
 
-# Database maintenance workflow
-"Set up disaster recovery for production database"
-# Automatically uses: database-admin → database-optimizer → incident-responder
+# Performance debugging workflow
+"Fix app crashes and improve startup time"
+# Automatically uses: debugger → performance-engineer → flutter-expert
 
-# ML pipeline workflow
-"Build end-to-end ML pipeline with monitoring"
-# Automatically uses: mlops-engineer → ml-engineer → data-engineer → performance-engineer
-
-# Product launch workflow
-"Launch new feature with marketing campaign"
-# Automatically uses: business-analyst → content-marketer → sales-automator → customer-support
+# Production-ready feature workflow
+"Implement payment processing with error handling"
+# Automatically uses: flutter-expert → security-auditor → test-automator → api-documenter
 ```
 
-### Advanced Workflows with Slash Commands
-
-For more sophisticated multi-subagent orchestration, use the companion [Commands repository](https://github.com/wshobson/commands):
-
-```bash
-# Complex feature development (8+ subagents)
-/full-stack-feature Build user dashboard with real-time analytics
-
-# Production incident response (5+ subagents) 
-/incident-response Database connection pool exhausted
-
-# ML infrastructure setup (6+ subagents)
-/ml-pipeline Create recommendation engine with A/B testing
-
-# Security-focused implementation (7+ subagents)
-/security-hardening Implement OAuth2 with zero-trust architecture
-```
 
 ## Subagent Format
 

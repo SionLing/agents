@@ -4,19 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a collection of 75 specialized AI subagents for Claude Code. Each subagent is an expert in a specific domain (development, security, infrastructure, business, etc.) and is automatically invoked based on context or explicitly called when needed.
+This is a curated collection of 11 specialized AI subagents for Flutter mobile app development with Claude Code. Each subagent is an expert in a specific aspect of mobile development and is automatically invoked based on context or explicitly called when needed.
 
 ## Repository Structure
 
-This repository contains individual markdown files (`.md`) for each subagent:
-- Language specialists (python-pro, rust-pro, typescript-pro, etc.)
-- Architecture & development (backend-architect, frontend-developer, etc.)
-- Infrastructure & operations (devops-troubleshooter, cloud-architect, etc.)
-- Quality & security (code-reviewer, security-auditor, test-automator, etc.)
-- Data & AI (data-scientist, ai-engineer, ml-engineer, etc.)
-- Business & marketing (business-analyst, content-marketer, etc.)
-- SEO specialists (seo-content-auditor, seo-meta-optimizer, etc.)
-- Documentation (docs-architect, api-documenter, tutorial-engineer, etc.)
+This repository contains individual markdown files (`.md`) for each Flutter development subagent:
+- **Flutter & Mobile Development**: flutter-expert, mobile-developer, ios-developer
+- **UI/UX Development**: frontend-developer, ui-ux-designer  
+- **Code Quality & Testing**: code-reviewer, test-automator, debugger
+- **Performance & Security**: performance-engineer, security-auditor
+- **Documentation & Integration**: api-documenter
 
 ## Subagent File Format
 
@@ -34,37 +31,42 @@ System prompt defining the subagent's role and capabilities
 
 ## Model Assignments
 
-Subagents are configured with specific Claude models based on task complexity:
+Flutter development subagents are configured with specific Claude models based on task complexity:
 
-- **Haiku (Fast & Cost-Effective)** - 15 agents: Simple tasks like data analysis, documentation, and standard responses
-- **Sonnet (Balanced Performance)** - 44 agents: Development tasks, code review, testing, and standard engineering work  
-- **Opus (Maximum Capability)** - 15 agents: Critical tasks like security auditing, architecture review, incident response, and AI/ML engineering
+- **Haiku (Fast & Cost-Effective)** - 1 agent: API documentation and specifications
+- **Sonnet (Balanced Performance)** - 8 agents: Flutter development, UI/UX, code quality, and testing tasks
+- **Opus (Maximum Capability)** - 2 agents: Security auditing and performance optimization
 
 ## Key Subagent Categories
 
 ### High-Impact Agents (Opus)
-- `security-auditor`: Vulnerability analysis and OWASP compliance
-- `ai-engineer`: LLM applications, RAG systems, prompt engineering
-- `incident-responder`: Production incident handling with urgency
-- `cloud-architect`: Infrastructure design and optimization
-- `performance-engineer`: Application bottleneck optimization
+- `security-auditor`: Mobile security vulnerability analysis and compliance
+- `performance-engineer`: App performance optimization and profiling
 
 ### Development Core (Sonnet)
-- `code-reviewer`: Code quality with configuration security focus
-- `backend-architect`: RESTful APIs, microservices, database design
-- `frontend-developer`: React components, responsive layouts
-- Language specialists (`python-pro`, `rust-pro`, `typescript-pro`, etc.)
+- `flutter-expert`: Flutter development with Dart, widgets, state management, and animations
+- `mobile-developer`: Cross-platform mobile app development with native integrations
+- `ios-developer`: Native iOS development and Flutter iOS-specific implementations
+- `frontend-developer`: Responsive UI components and client-side state management
+- `ui-ux-designer`: Mobile interface design, wireframes, and design systems
+- `code-reviewer`: Code quality analysis with security focus
+- `test-automator`: Comprehensive test suites for mobile apps
+- `debugger`: Mobile app debugging and error investigation
 
-### Automation & Support (Haiku)
-- `api-documenter`: OpenAPI/Swagger documentation
-- `business-analyst`: Metrics and KPI tracking
-- `content-marketer`: Blog posts and SEO content
-- SEO specialists for optimization tasks
+### Documentation & Support (Haiku)
+- `api-documenter`: API integration documentation and specifications
 
 ## Development Workflow
 
-### No Build/Test Commands Required
-This repository contains only markdown documentation files - no compilation, linting, or testing is required.
+### Flutter Development Context
+This repository provides subagents specifically for Flutter mobile app development. No build/test commands are required for the agent files themselves (markdown only), but the agents understand Flutter development workflows including:
+
+- `flutter pub get` - Install dependencies
+- `flutter run` - Run on connected devices/emulators  
+- `flutter test` - Run unit and widget tests
+- `flutter build android/ios` - Build for production
+- `flutter analyze` - Static analysis
+- `flutter doctor` - Environment health check
 
 ### File Editing Guidelines
 When modifying subagent files:
@@ -95,10 +97,11 @@ Users can request specific subagents:
 - "Get performance-engineer to optimize this"
 
 ### Multi-Agent Workflows
-Subagents coordinate automatically for complex tasks:
-- Feature development: backend-architect → frontend-developer → test-automator → security-auditor
-- Performance optimization: performance-engineer + database-optimizer → combined recommendations
-- Production issues: incident-responder → devops-troubleshooter → error-detective
+Subagents coordinate automatically for Flutter development tasks:
+- Feature development: flutter-expert → ui-ux-designer → test-automator → security-auditor
+- Performance optimization: performance-engineer → flutter-expert → ios-developer
+- Cross-platform implementation: flutter-expert → ios-developer → test-automator
+- Security review: security-auditor → flutter-expert → test-automator
 
 ## Special Considerations
 
@@ -119,9 +122,10 @@ The `code-reviewer` subagent has specialized training for configuration changes 
 ### License
 MIT License - see LICENSE file
 
-### External Links
-- Repository is linked to Claude Code documentation and GitHub
-- Contains multilingual README support
-- References companion Commands repository for advanced workflows
+### Flutter Development Focus
+- Optimized for cross-platform mobile app development
+- Covers Android and iOS deployment scenarios
+- Includes native integration capabilities
+- Supports modern Flutter architecture patterns
 
-This repository serves as a comprehensive library of domain expertise that extends Claude Code's capabilities across all major areas of software development and business operations.
+This repository serves as a focused library of Flutter mobile development expertise that extends Claude Code's capabilities specifically for cross-platform mobile app development.
