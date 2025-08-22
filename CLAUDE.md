@@ -4,128 +4,137 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a curated collection of 11 specialized AI subagents for Flutter mobile app development with Claude Code. Each subagent is an expert in a specific aspect of mobile development and is automatically invoked based on context or explicitly called when needed.
+This repository contains specialized AI subagents for an **Adversarial Document Analysis System**. The system uses multiple agents to collaboratively analyze and improve requirements documents and analysis documents through an iterative, debate-style process.
 
-## Repository Structure
+## System Architecture
 
-This repository contains individual markdown files (`.md`) for each Flutter development subagent:
-- **Flutter & Mobile Development**: flutter-expert, mobile-developer, ios-developer
-- **UI/UX Development**: frontend-developer, ui-ux-designer  
-- **Code Quality & Testing**: code-reviewer, test-automator, debugger
-- **Performance & Security**: performance-engineer, security-auditor
-- **Documentation & Integration**: api-documenter
+The system consists of four core agents that work together:
+
+### Core Agents
+1. **data-researcher**: Searches Google and reliable websites for supporting data and evidence
+2. **pro-side-analyst**: Creates and defends documents, responds to critiques with improvements
+3. **con-side-analyst**: Analyzes documents to find flaws, inconsistencies, and weak points
+4. **argument-orchestrator**: Manages the iterative debate process and enforces stop conditions
+
+### Analysis Workflow
+
+1. **Initial Document Creation**: Pro-side agent creates the initial document/analysis
+2. **Research Phase**: Data agent gathers supporting evidence and relevant information
+3. **Critique Phase**: Con-side agent analyzes document and identifies rejection points (max 10)
+4. **Defense Phase**: Pro-side agent evaluates con-side opinions and optimizes document
+5. **Iteration**: Process repeats until stop conditions are met
+
+### Stop Conditions
+The process terminates when either:
+- **5 argument rounds** have been completed
+- **Fewer than 3 rejection points** remain (out of maximum 10)
 
 ## Subagent File Format
 
-Each subagent follows this YAML frontmatter format:
+Each agent follows this YAML frontmatter format:
+
 ```markdown
 ---
-name: subagent-name
-description: When this subagent should be invoked
-model: haiku|sonnet|opus  # Optional - specify which Claude model to use
-tools: tool1, tool2       # Optional - defaults to all tools
+name: agent-name
+description: When this agent should be invoked in the analysis process
+model: sonnet|opus  # Most agents use sonnet or opus for complex reasoning
+tools: WebSearch, WebFetch, Read, Write, Edit  # Specific tools needed
 ---
 
-System prompt defining the subagent's role and capabilities
+System prompt defining the agent's role, analysis methodology, and output format
 ```
 
-## Model Assignments
+## Model Assignment Strategy
 
-Flutter development subagents are configured with specific Claude models based on task complexity:
+- **Sonnet**: Standard analysis, research, and document processing tasks
+- **Opus**: Complex reasoning, argument evaluation, and critical analysis requiring deep thinking
+- **Haiku**: Not recommended for this system due to complexity requirements
 
-- **Haiku (Fast & Cost-Effective)** - 1 agent: API documentation and specifications
-- **Sonnet (Balanced Performance)** - 8 agents: Flutter development, UI/UX, code quality, and testing tasks
-- **Opus (Maximum Capability)** - 2 agents: Security auditing and performance optimization
+## Agent Specifications
 
-## Key Subagent Categories
+### data-researcher Agent
+- **Purpose**: Gather supporting evidence and factual information
+- **Tools**: WebSearch, WebFetch for Google searches and reliable sources
+- **Output**: Structured research findings with source citations
+- **Model**: Sonnet (efficient for search and data collection)
 
-### High-Impact Agents (Opus)
-- `security-auditor`: Mobile security vulnerability analysis and compliance
-- `performance-engineer`: App performance optimization and profiling
+### pro-side-analyst Agent  
+- **Purpose**: Create, defend, and improve documents based on feedback
+- **Methodology**: Constructive argumentation, evidence-based improvements
+- **Output**: Optimized documents with rationale for changes
+- **Model**: Opus (complex document creation and optimization)
 
-### Development Core (Sonnet)
-- `flutter-expert`: Flutter development with Dart, widgets, state management, and animations
-- `mobile-developer`: Cross-platform mobile app development with native integrations
-- `ios-developer`: Native iOS development and Flutter iOS-specific implementations
-- `frontend-developer`: Responsive UI components and client-side state management
-- `ui-ux-designer`: Mobile interface design, wireframes, and design systems
-- `code-reviewer`: Code quality analysis with security focus
-- `test-automator`: Comprehensive test suites for mobile apps
-- `debugger`: Mobile app debugging and error investigation
+### con-side-analyst Agent
+- **Purpose**: Critical analysis to identify flaws and weak points
+- **Methodology**: Systematic evaluation, devil's advocate approach
+- **Output**: Up to 10 rejection points with detailed explanations
+- **Model**: Opus (deep critical thinking and analysis)
 
-### Documentation & Support (Haiku)
-- `api-documenter`: API integration documentation and specifications
+### argument-orchestrator Agent
+- **Purpose**: Manage the iterative process and track progress
+- **Responsibilities**: Round counting, rejection point scoring, stop condition evaluation
+- **Output**: Process status, final results, and iteration summaries
+- **Model**: Sonnet (process management and coordination)
 
-## Development Workflow
+## Development Guidelines
 
-### Flutter Development Context
-This repository provides subagents specifically for Flutter mobile app development. No build/test commands are required for the agent files themselves (markdown only), but the agents understand Flutter development workflows including:
+### No Build/Test Commands Required
+This repository contains only markdown agent definitions - no compilation or testing infrastructure needed.
 
-- `flutter pub get` - Install dependencies
-- `flutter run` - Run on connected devices/emulators  
-- `flutter test` - Run unit and widget tests
-- `flutter build android/ios` - Build for production
-- `flutter analyze` - Static analysis
-- `flutter doctor` - Environment health check
+### Agent Creation Standards
+1. Use descriptive, role-based filenames (e.g., `pro-side-analyst.md`)
+2. Define clear invocation criteria for the analysis workflow
+3. Specify required tools for each agent's function
+4. Structure prompts for consistent output formats
+5. Include examples of expected input/output
 
-### File Editing Guidelines
-When modifying subagent files:
-1. Preserve the YAML frontmatter format exactly
-2. Keep descriptions concise and specific about when to invoke
-3. Maintain the established model assignments (haiku/sonnet/opus)
-4. Follow the existing system prompt structure and tone
-
-### Creating New Subagents
-1. Use lowercase, hyphen-separated names
-2. Write clear descriptions for automatic invocation
-3. Choose appropriate model based on task complexity
-4. Include specific domain expertise in the system prompt
-5. Focus on practical implementation over theory
+### Quality Standards
+- **Objectivity**: Agents must maintain analytical objectivity
+- **Evidence-based**: All conclusions must be supported by data/research
+- **Structured Output**: Consistent formatting for easy processing
+- **Iterative Design**: Agents must work effectively in the debate cycle
 
 ## Usage Patterns
 
-### Automatic Invocation
-Claude Code analyzes requests and delegates to appropriate subagents based on:
-- Keywords and context in the request
-- Technical domain indicators
-- Task complexity and requirements
+### Typical Analysis Session
+1. User provides requirements document or analysis document
+2. System automatically invokes appropriate agents in sequence
+3. Iterative improvement cycle runs until stop conditions
+4. Final optimized document and analysis summary provided
 
-### Explicit Invocation
-Users can request specific subagents:
-- "Use code-reviewer to analyze these changes"
-- "Have security-auditor check for vulnerabilities"  
-- "Get performance-engineer to optimize this"
+### Manual Invocation
+Users can invoke specific agents:
+- "Use data-researcher to find supporting evidence for this claim"
+- "Have pro-side-analyst optimize this requirements section"
+- "Get con-side-analyst to critique this analysis approach"
 
-### Multi-Agent Workflows
-Subagents coordinate automatically for Flutter development tasks:
-- Feature development: flutter-expert → ui-ux-designer → test-automator → security-auditor
-- Performance optimization: performance-engineer → flutter-expert → ios-developer
-- Cross-platform implementation: flutter-expert → ios-developer → test-automator
-- Security review: security-auditor → flutter-expert → test-automator
+## Output Formats
 
-## Special Considerations
+### Document Versions
+- **Version tracking**: Each iteration creates numbered document versions
+- **Change logs**: Clear documentation of what changed and why
+- **Rejection tracking**: Systematic recording of identified issues
 
-### Configuration Security Focus
-The `code-reviewer` subagent has specialized training for configuration changes that could cause production outages, with particular emphasis on:
-- Connection pool settings
-- Timeout configurations
-- Memory and resource limits
-- Security misconfigurations
+### Final Deliverables
+- **Optimized document**: Final version after all iterations
+- **Analysis report**: Summary of all rejection points and resolutions
+- **Evidence base**: Compiled research supporting document claims
+- **Process log**: Complete record of the adversarial analysis cycle
 
-### Model-Specific Capabilities
-- **Opus agents** handle complex analysis requiring deep reasoning
-- **Sonnet agents** balance capability with efficiency for most tasks
-- **Haiku agents** optimize for speed on straightforward operations
+## Community Guidelines
+
+This repository follows established standards defined in:
+- `.github/CODE_OF_CONDUCT.md`: Community behavior expectations
+- `.github/CONTRIBUTING.md`: Contribution process and quality standards
 
 ## Repository Maintenance
 
 ### License
-MIT License - see LICENSE file
+MIT License - allows broad use and modification of the adversarial analysis system
 
-### Flutter Development Focus
-- Optimized for cross-platform mobile app development
-- Covers Android and iOS deployment scenarios
-- Includes native integration capabilities
-- Supports modern Flutter architecture patterns
+### Integration
+- Designed specifically for Claude Code's multi-agent orchestration
+- Compatible with existing Claude Code workflow patterns
+- Extensible for domain-specific document analysis needs
 
-This repository serves as a focused library of Flutter mobile development expertise that extends Claude Code's capabilities specifically for cross-platform mobile app development.
+This system provides a robust, multi-perspective approach to document analysis that combines research, advocacy, and critical evaluation to produce higher-quality requirements and analysis documents.
