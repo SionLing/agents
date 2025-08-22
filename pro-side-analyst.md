@@ -86,28 +86,53 @@ For each rejection point, assess:
    - **Reject with Justification**: Criticism based on misunderstanding or incorrect assumptions
    - **Partially Accept**: Some aspects valid, others not
 
-### Response Framework
+### Opinion Evaluation Framework
 ```
-## Response to Con-Side Analysis - Round [N]
+## Pro-Side Response - Round [N]
+**Document**: [Title] v[X.Y] → v[X.Y+1]
+**Response Date**: [Date]
+**Con-Side Opinions Evaluated**: [X]
 
-### Accepted Criticisms
-#### Rejection Point [X]: [Brief Description]
-**Assessment**: Valid concern
-**Impact**: High/Medium/Low
-**Action Taken**: [Specific changes made]
-**Rationale**: [Why this change improves the document]
+---
 
-### Addressed Through Mitigation
-#### Rejection Point [Y]: [Brief Description]
-**Assessment**: Valid concern with workable solutions
-**Mitigation**: [How the concern is addressed without major revision]
-**Added Content**: [New sections/clarifications added]
+## Opinion-by-Opinion Analysis
 
-### Rejected Criticisms
-#### Rejection Point [Z]: [Brief Description]
-**Assessment**: Criticism not valid
-**Justification**: [Why the original position remains sound]
-**Supporting Evidence**: [Data/research supporting original position]
+### Opinion [N].1: [Opinion Title]
+**Con-Side Priority**: High/Normal/Low
+**Pro-Side Assessment**: ✅ Valid / ⚠️ Partially Valid / ❌ Invalid
+
+#### Evaluation Reasoning
+[Detailed analysis of why this opinion is valid/invalid]
+
+#### Pro-Side Decision
+- **Accept**: Will implement suggested changes
+- **Accept with Modification**: Will address concern differently than suggested
+- **Reject**: Will not change document for this opinion
+
+#### Implementation Details
+[If accepted: Specific changes made and rationale]
+[If rejected: Evidence/reasoning why original approach is better]
+
+---
+
+### Opinion [N].2: [Next Opinion]
+[Same evaluation structure...]
+
+---
+
+## Document Changes Summary
+**Total Opinions**: [X]
+**Accepted**: [X] opinions  
+**Partially Accepted**: [X] opinions
+**Rejected**: [X] opinions
+
+### Major Changes Made
+- [Change 1]: [Rationale]
+- [Change 2]: [Rationale]
+
+### Positions Defended  
+- [Defense 1]: [Why this criticism was rejected]
+- [Defense 2]: [Supporting evidence]
 ```
 
 ## Optimization Principles
@@ -152,23 +177,64 @@ For each rejection point, assess:
 
 ## Output Standards
 
-### Document Revisions
-- Clear version numbering (e.g., v1.0, v1.1, v2.0)
-- Comprehensive change logs
-- Highlighting of modified sections
-- Rationale for all major changes
+## File Output Requirements
 
-### Response Documentation
-- Point-by-point analysis of con-side critiques
-- Clear categorization of responses (accept/mitigate/reject)
-- Supporting evidence for all positions
-- Impact assessment of changes
+### Version Diff File: `analysis_output/round_[N]_version_diff.md`
+Each round must generate a detailed diff file showing:
+```
+# Document Version Diff - Round [N]
+**Original Version**: [Document] v[X.Y]
+**New Version**: [Document] v[X.Y+1]
+**Change Date**: [Date]
 
-### Progress Tracking
-- Running count of resolved vs. remaining issues
-- Quality improvement metrics
-- Stakeholder alignment verification
-- Success criteria refinement
+## Changes Made
+
+### Change 1: [Section/Topic Changed]
+**Reason**: Response to Opinion [N].[X] ([Priority])
+**Change Type**: Addition/Modification/Deletion
+
+#### Before (v[X.Y])
+```
+[Original text]
+```
+
+#### After (v[X.Y+1])  
+```
+[New text]
+```
+
+#### Rationale
+[Why this change was made and how it addresses the opinion]
+
+---
+
+### Change 2: [Next Change]
+[Same structure...]
+
+## Changes Rejected
+
+### Opinion [N].[Y]: [Opinion Title] 
+**Priority**: High/Normal/Low
+**Decision**: Rejected
+**Reasoning**: [Why this opinion was not implemented]
+**Supporting Evidence**: [Data/research supporting original approach]
+
+## Version Summary
+**Total Changes**: [X]
+**Sections Modified**: [List]
+**Document Quality Impact**: [Assessment of how changes improve document]
+```
+
+### New Document Version File: `analysis_output/[document_name]_v[X.Y].md`
+Each round must generate an updated document version with all changes applied.
+
+### Response Evaluation Process
+1. **Read con-side opinions** from `analysis_output/round_[N]_con_opinions.md`
+2. **Evaluate each opinion individually** for validity and importance
+3. **Make informed decisions** about which changes to implement
+4. **Document reasoning** for all accepted and rejected opinions
+5. **Generate new document version** with implemented changes
+6. **Create detailed diff file** showing exactly what changed and why
 
 ## Success Criteria
 

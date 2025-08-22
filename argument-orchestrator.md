@@ -36,19 +36,19 @@ Round N:
 ## Stop Conditions Monitoring
 
 ### Primary Termination Criteria
-1. **Round Limit Reached**: 5 complete argument rounds completed
-2. **Quality Threshold**: Fewer than 3 rejection points in latest con-side analysis
+1. **Round Limit Reached**: 10 complete argument rounds completed
+2. **Quality Threshold**: Fewer than 3 opinions with all opinions having Low priority
 3. **Process Failure**: Inability to proceed due to agent disagreements or technical issues
 
 ### Stop Condition Evaluation Matrix
 ```
-| Round | Rejection Points | Action |
-|-------|-----------------|---------|
-| 1-4   | 7-10           | Continue |
-| 1-4   | 4-6            | Continue |
-| 1-4   | 0-3            | STOP - Quality Achieved |
-| 5     | Any number     | STOP - Round Limit |
-| Any   | Process Stuck  | STOP - Technical Issue |
+| Round | Opinion Count & Priority | Action |
+|-------|-------------------------|---------|
+| 1-9   | ≥4 opinions (any priority) | Continue |
+| 1-9   | ≥3 opinions (with High/Normal) | Continue |
+| 1-9   | <3 opinions (all Low priority) | STOP - Quality Achieved |
+| 10    | Any number/priority | STOP - Round Limit |
+| Any   | Process Stuck | STOP - Technical Issue |
 ```
 
 ## Agent Coordination Protocol
@@ -100,8 +100,8 @@ Round N:
 
 ### Phase Results
 - **Research Phase**: [Status/Key findings]
-- **Con-Side Analysis**: [X rejection points identified]
-- **Pro-Side Response**: [X points accepted, Y rejected, Z mitigated]
+- **Con-Side Analysis**: [X opinions identified - High: Y, Normal: Z, Low: W]
+- **Pro-Side Response**: [X opinions accepted, Y rejected, Z modified]
 
 ### Document Changes
 - **Sections Modified**: [List of changed sections]
@@ -109,9 +109,14 @@ Round N:
 - **Quality Trend**: Improving/Stable/Declining
 
 ### Stop Condition Status
-- **Rounds Completed**: [N]/5
-- **Current Rejection Points**: [X]/10
+- **Rounds Completed**: [N]/10
+- **Current Opinion Count**: [X] (High: [Y], Normal: [Z], Low: [W])
 - **Termination Criteria Met**: Yes/No
+
+### File Outputs Generated
+- `analysis_output/round_[N]_con_opinions.md`
+- `analysis_output/round_[N]_version_diff.md`  
+- `analysis_output/[document_name]_v[X.Y].md`
 
 ### Next Actions
 [What happens in the next round or termination procedures]
@@ -135,15 +140,15 @@ Process Health Indicators:
 
 ### Continue Process Decision
 **Continue if:**
-- Rounds < 5 AND rejection points ≥ 3
+- Rounds < 10 AND (≥4 opinions OR ≥3 opinions with High/Normal priority)
 - Document showing measurable improvement
 - All agents functioning properly
 - Pro-side making good faith efforts to address critiques
 
 ### Termination Decision
 **Terminate if:**
-- Rounds = 5 (regardless of rejection points)
-- Rejection points < 3 in any round
+- Rounds = 10 (regardless of opinion count/priority)
+- <3 opinions AND all opinions are Low priority in any round
 - Process deadlock (agents unable to proceed)
 - Document quality declining instead of improving
 
@@ -154,8 +159,8 @@ Process Health Indicators:
 - User intervention required
 
 **Process Extension**:
-- Not permitted - 5-round limit is absolute
-- Quality threshold of <3 rejection points supersedes round limit
+- Not permitted - 10-round limit is absolute
+- Quality threshold (<3 Low-priority opinions) supersedes round limit
 
 ## Final Reporting
 
