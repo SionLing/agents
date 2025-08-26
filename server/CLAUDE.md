@@ -4,141 +4,186 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is the **server** subdirectory of the Adversarial Document Analysis System. It contains specialized AI subagents and SDK testing tools that extend the core adversarial analysis system located in the parent directory.
+This is the **server** subdirectory of the Adversarial Document Analysis System. It contains active analysis results, specialized AI subagents, and SDK testing tools that extend the core adversarial analysis system.
 
 ## Repository Structure
 
 This server directory contains:
 
-- **Agent Definitions**: Additional specialized agent markdown files for domain-specific document analysis
-- **SDK Testing**: Python scripts for testing the Claude Code SDK integration 
-- **Agent Deployment**: Shell scripts for copying agent definitions to Claude Code
+- **Active Analysis Results**: Live output from adversarial document analysis sessions in `[document_name]_output/`
+- **Specialized Agent Definitions**: Domain-specific agent markdown files for targeted analysis
+- **Document Versions**: Multiple versions of analyzed documents showing iterative improvements  
+- **SDK Testing Tools**: Python scripts for testing Claude Code SDK integration
+- **Agent Deployment Scripts**: Shell scripts for agent management
 
-## Key Files
+## Key Files and Directories
 
-### Agent Files
-- `pro_novel_hub.md`: Specialized agent for analyzing "Novel Open Source" concept documents (Chinese content)
-- `pro_travel_ai_assist.md`: Specialized agent for travel/tourism product requirements analysis
+### Analysis Output Directory (`[document_name]_output/`)
+Contains results from actual adversarial analysis sessions:
+- `final_report.md`: Complete process summary with quality metrics
+- `process_log.md`: Round-by-round analysis tracking
+- `round_[N]_con_analysis.md`: Con-side critique files with prioritized opinions
+- `round_[N]_pro_response.md`: Pro-side improvement responses
+- `round_[N]_research_findings.md`: Data researcher evidence reports
+
+### Specialized Agent Files
+- `pro_novel_hub.md`: Chinese language agent for "Novel Open Source" concept analysis
+- `pro_travel_ai_assist.md`: Product requirements agent for travel/AI assistant applications  
+- `pro_novel_hub_v1.1.md`, `pro_novel_hub_v1.2.md`: Version-tracked document improvements
 
 ### Testing and Deployment
-- `test_sdk.py`: Claude Code SDK integration test script using asyncio
-- `copy_agents.sh`: Shell script to copy agent markdown files from parent directory to `.claude/agents/`
+- `test_sdk.py`: Asyncio-based Claude Code SDK integration testing
+- `copy_agents.sh`: Agent deployment script from parent directory
 
 ## Commands
 
-### Testing SDK Integration
+### Running Adversarial Analysis
+```bash
+# Full automatic analysis on existing documents
+"Run adversarial analysis on pro_novel_hub.md"
+
+# Domain-specific analysis with specialized agents
+"Use the travel AI agent to analyze pro_travel_ai_assist.md"
+
+# Manual step-by-step control
+"Use con-side-analyst to analyze pro_novel_hub.md and generate Round 1 opinions"
+```
+
+### SDK Testing and Validation
 ```bash
 python test_sdk.py
 ```
-Run the Claude Code SDK test to verify adversarial analysis functionality. The script:
-- Uses asyncio for asynchronous operations
-- Tests the Claude Code SDK with system prompts for Senior Product Manager persona
-- Runs adversarial analysis on documents like `pro_novel_hub.md`
-- Streams responses with content extraction
+Tests Claude Code SDK integration with:
+- Asyncio streaming response handling
+- Senior Product Manager system prompt configuration  
+- Adversarial analysis invocation on `pro_novel_hub.md`
+- Error handling and timeout management
 
-### Deploying Agents
+### Agent Management
 ```bash
 ./copy_agents.sh
 ```
-Copies all `.md` agent files from the parent directory to the local `.claude/agents/` directory. This enables:
-- Local development and testing of agent modifications
-- Isolated agent deployments for specific projects
-- Version control of agent definitions
+Copies all agent files from `../` to local `.claude/agents/` directory for:
+- Local development testing
+- Isolated agent deployments
+- Version-controlled agent modifications
 
 ## System Architecture
 
-This server extends the core 4-agent adversarial analysis system:
+This server directory demonstrates the adversarial analysis system in action with real analysis results and specialized extensions.
 
-### Core System (from parent directory)
-1. **argument-orchestrator**: Process management and coordination (Sonnet)
-2. **data-researcher**: Evidence gathering and fact verification (Sonnet) 
-3. **con-side-analyst**: Critical analysis and flaw identification (Opus)
-4. **pro-side-analyst**: Document optimization and defense (Opus)
+### Analysis Process Flow
+1. **Document Input**: Source documents (e.g., `pro_novel_hub.md`) analyzed through adversarial process
+2. **Multi-Round Analysis**: Up to 5 rounds of critique→improvement→evaluation cycles  
+3. **Priority-Based Feedback**: Opinions classified as High/Normal/Low priority for systematic resolution
+4. **Quality Threshold**: Process terminates when <3 opinions remain OR all are Low priority
+5. **Comprehensive Output**: Complete analysis trail in `[document_name]_output/` directory
 
-### Extended Agents (this directory)
-- **Domain-Specific Analysts**: Specialized agents for particular industries or document types
-- **Cultural/Language Specialists**: Agents optimized for non-English content analysis
-- **Product-Specific Validators**: Agents focused on particular product categories (travel, literature, etc.)
+### Core Agents (from parent directory)
+1. **argument-orchestrator**: Manages process flow, enforces stop conditions, tracks metrics (Sonnet)
+2. **data-researcher**: Gathers supporting evidence, validates claims, provides citations (Sonnet)
+3. **con-side-analyst**: Identifies flaws/gaps, assigns priorities, suggests improvements (Opus)  
+4. **pro-side-analyst**: Evaluates critiques, implements improvements, justifies decisions (Opus)
 
-## Development Workflow
+### Specialized Extensions (this directory)
+- **Domain-Specific Analysis**: Agents optimized for particular content types (literature, travel/AI products)
+- **Multi-Language Support**: Agents capable of analyzing Chinese and English documents
+- **Product Requirements Focus**: Specialized agents for technical product specification analysis
 
-### Agent Development
-1. Create new agent `.md` files following the YAML frontmatter format:
+## Analysis Output Structure
+
+Based on actual analysis sessions in this directory, the system produces:
+
+### Comprehensive Result Files
+```
+[document_name]_output/
+├── final_report.md           # Executive summary with quality metrics and outcomes
+├── process_log.md            # Round-by-round process tracking and agent coordination
+├── round_[N]_con_analysis.md # Con-side critique with prioritized opinions (High/Normal/Low)
+├── round_[N]_pro_response.md # Pro-side evaluation and document improvements  
+├── round_[N]_research_*.md   # Data research findings and evidence validation
+└── [document]_v[X.Y].md      # Version-tracked document improvements
+```
+
+### Quality Metrics Tracked
+- **Opinion Resolution Rate**: Typically >85% of High/Normal priority issues addressed
+- **Document Growth**: Often 40-65% content expansion with substantive improvements
+- **Process Efficiency**: Most documents achieve quality threshold in 2-4 rounds
+- **Version Evolution**: Clear progression from conceptual to implementation-ready
+
+### Success Patterns Observed
+- **Round 1**: Usually identifies 6-10 issues, typically structural/completeness gaps
+- **Round 2-3**: Focus on evidence strengthening, implementation details, risk mitigation  
+- **Final**: Typically 0-3 Low-priority issues (formatting, minor improvements)
+
+## Proven Usage Patterns
+
+### Automatic Full Analysis (Recommended)
+```bash
+"Run adversarial analysis on pro_novel_hub.md"
+```
+**Results**: Complete 3-round analysis with:
+- Chinese concept document → comprehensive implementation framework
+- 8 initial rejection points → 2 Low-priority final issues  
+- ~65% content expansion with evidence-based improvements
+
+### Manual Process Control
+```bash
+"Use con-side-analyst to analyze pro_novel_hub.md and generate Round 1 opinions"
+"Use pro-side-analyst to respond to the con-side opinions and improve the document"
+"Use argument-orchestrator to determine if we should continue analysis"
+```
+
+### Domain-Specific Invocation  
+```bash
+"Use the travel AI agent to analyze pro_travel_ai_assist.md for product requirements gaps"
+"Apply Chinese literature analysis expertise to evaluate novel concept feasibility"
+```
+
+## Testing and Validation
+
+### SDK Integration Testing
+```bash
+python test_sdk.py
+```
+**Validates**: 
+- AsyncIO response streaming from Claude Code SDK
+- System prompt configuration (Senior Product Manager persona)
+- Multi-turn adversarial analysis invocation
+- Error handling and timeout management
+
+### Quality Validation Checklist
+Based on successful analysis sessions:
+- [ ] Analysis produces `final_report.md` with clear quality metrics
+- [ ] Round files show decreasing opinion counts (8→4→2 pattern)  
+- [ ] Document versions show substantive improvements (v1.0 → v1.1 → v1.2)
+- [ ] Process terminates at quality threshold (<3 Low-priority opinions)
+- [ ] Final documents are implementation-ready with evidence support
+
+### Agent File Requirements
+Following the established YAML frontmatter format:
 ```markdown
 ---
 name: agent-name
-description: When this agent should be invoked
-model: sonnet|opus
+description: When this agent should be invoked  
+model: sonnet|opus  # Use opus for complex reasoning, sonnet for coordination
 tools: WebSearch, WebFetch, Read, Write, Edit
 ---
 
-[System prompt content]
+System prompt with specific instructions for agent behavior and output format
 ```
 
-2. Test agents using the SDK integration script
-3. Deploy using `copy_agents.sh` when ready
+## Development Guidelines
 
-### Testing Process
-1. **Unit Testing**: Test individual agents with specific document types
-2. **SDK Integration**: Use `test_sdk.py` to verify Claude Code SDK compatibility
-3. **End-to-End Testing**: Run complete adversarial analysis cycles
-4. **Performance Validation**: Monitor response times and quality metrics
+### Agent Creation Standards
+- **Specificity**: Focus on clear domain expertise (travel products, literature analysis, etc.)
+- **Multi-language**: Support both English and Chinese content where applicable
+- **Output Consistency**: Maintain compatibility with core system expectations
+- **Evidence-Based**: All analysis must be supported by research and data
 
-## Agent File Format
+### File Management
+- Use descriptive filenames following `pro_[domain]_[purpose].md` pattern
+- Version track improved documents as `[document]_v[X.Y].md`
+- Maintain clean separation between source documents and analysis output
 
-All agent files must follow the standardized format:
-- **YAML Frontmatter**: Defines agent metadata, model assignment, and tool access
-- **System Prompt**: Detailed instructions for agent behavior and output format
-- **Examples**: Sample inputs and expected outputs where applicable
-
-## Integration Notes
-
-### With Parent System
-- Inherits all core functionality from the main adversarial analysis system
-- Extends capabilities with domain-specific expertise
-- Maintains compatibility with the standard workflow (5 rounds max, priority-based feedback)
-
-### With Claude Code SDK
-- Supports both synchronous and asynchronous operations
-- Implements streaming response handling
-- Provides robust error handling and timeout management
-- Uses proper authentication and session management
-
-## Quality Standards
-
-### Agent Quality Requirements
-- **Specificity**: Domain-specific agents must demonstrate clear expertise advantage
-- **Consistency**: Output format must align with core system expectations  
-- **Reliability**: Agents must handle edge cases and error conditions gracefully
-- **Performance**: Response times should be optimized for production use
-
-### Code Quality Standards
-- **Error Handling**: All scripts must include comprehensive error handling
-- **Documentation**: All functions and complex logic must be documented
-- **Testing**: Critical paths must have test coverage
-- **Security**: No hardcoded credentials or sensitive data in code
-
-## Usage Patterns
-
-### Running Domain-Specific Analysis
-```bash
-"Use the travel AI analysis agent to review this product requirements document"
-"Run novel concept analysis on this Chinese literature document"
-```
-
-### SDK Testing and Development  
-```bash
-python test_sdk.py  # Test basic SDK integration
-# Modify system prompts in test_sdk.py for different personas
-# Add new test scenarios for specialized agents
-```
-
-### Agent Deployment Pipeline
-```bash
-# 1. Develop agents in this directory
-# 2. Test with SDK integration
-./copy_agents.sh  # 3. Deploy to Claude Code
-# 4. Validate in production environment
-```
-
-This server directory enables extended capabilities while maintaining full compatibility with the core adversarial document analysis system architecture.
+This server directory demonstrates production-ready adversarial analysis with documented success patterns and comprehensive output tracking.

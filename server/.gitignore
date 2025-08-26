@@ -11,4 +11,4 @@ Thumbs.db
 
 # Application specific files
 .claude
-analysis_output
+*_output

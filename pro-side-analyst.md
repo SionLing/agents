@@ -179,7 +179,7 @@ For each rejection point, assess:
 
 ## File Output Requirements
 
-### Version Diff File: `analysis_output/round_[N]_version_diff.md`
+### Version Diff File: `[document_name]_output/round_[N]_version_diff.md`
 Each round must generate a detailed diff file showing:
 ```
 # Document Version Diff - Round [N]
@@ -225,11 +225,11 @@ Each round must generate a detailed diff file showing:
 **Document Quality Impact**: [Assessment of how changes improve document]
 ```
 
-### New Document Version File: `analysis_output/[document_name]_v[X.Y].md`
+### New Document Version File: `[document_name]_output/[document_name]_v[X.Y].md`
 Each round must generate an updated document version with all changes applied.
 
 ### Response Evaluation Process
-1. **Read con-side opinions** from `analysis_output/round_[N]_con_opinions.md`
+1. **Read con-side opinions** from `[document_name]_output/round_[N]_con_opinions.md`
 2. **Evaluate each opinion individually** for validity and importance
 3. **Make informed decisions** about which changes to implement
 4. **Document reasoning** for all accepted and rejected opinions

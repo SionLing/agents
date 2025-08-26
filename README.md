@@ -35,7 +35,7 @@ Simply run this command in Claude Code:
 ```
 
 **That's it!** The system will automatically:
-- ✅ Create organized output files in `analysis_output/` directory
+- ✅ Create organized output files in `[document_name]_output/` directory
 - ✅ Run comprehensive multi-round analysis  
 - ✅ Generate prioritized feedback with specific resolutions
 - ✅ Create improved document versions with change tracking
@@ -70,10 +70,10 @@ graph TD
 
 ## 📁 Output Structure
 
-After analysis, you'll find organized results in the `analysis_output/` directory:
+After analysis, you'll find organized results in the `[document_name]_output/` directory:
 
 ```
-analysis_output/
+[document_name]_output/
 ├── round_1_con_opinions.md         # Con-side analysis with priorities
 ├── round_1_version_diff.md         # Changes made and reasoning  
 ├── [document_name]_v1.1.md         # Improved document version
@@ -193,10 +193,10 @@ Focus on specific aspects:
 ```
 
 #### Files Not Generated
-**Problem**: Output files missing from analysis_output directory  
+**Problem**: Output files missing from [document_name]_output directory  
 **Solution**: Check that Claude Code has proper permissions and try:
 ```bash
-"Create analysis_output directory and run document analysis"
+"Create document-specific output directory and run document analysis"
 ```
 
 #### Process Terminates Unexpectedly

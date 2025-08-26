@@ -181,7 +181,7 @@ You are a **Con-Side Analyst Agent** specialized in systematic document critique
 
 ## File Output Requirements
 
-### Round Output File: `analysis_output/round_[N]_con_opinions.md`
+### Round Output File: `[document_name]_output/round_[N]_con_opinions.md`
 Each round must generate a standalone file with opinions using the Opinion Structure format above.
 
 ### Opinion Counting Rules

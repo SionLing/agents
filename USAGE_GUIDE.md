@@ -18,7 +18,7 @@ Place your document in the working directory or have it ready to paste into Clau
 
 ### Step 3: Monitor Progress
 The system will automatically:
-1. Create analysis output files in `analysis_output/` directory
+1. Create analysis output files in `[document_name]_output/` directory
 2. Run up to 10 rounds of critique and improvement
 3. Stop when quality threshold is reached (<3 Low-priority opinions)
 4. Generate final comprehensive report
@@ -41,7 +41,7 @@ The system will automatically:
 
 **Output Files Generated:**
 ```
-analysis_output/
+[document_name]_output/
 ├── round_1_con_opinions.md         # Con-side analysis with priorities
 ├── round_1_version_diff.md         # Changes made and reasoning  
 ├── [document_name]_v1.1.md         # Improved document version
@@ -57,15 +57,15 @@ analysis_output/
 ```bash
 "Use con-side-analyst to analyze this document and generate Round 1 opinions: [document]"
 ```
-**Output:** `analysis_output/round_1_con_opinions.md` with prioritized opinions
+**Output:** `[document_name]_output/round_1_con_opinions.md` with prioritized opinions
 
 #### Step 2: Document Improvement
 ```bash
 "Use pro-side-analyst to respond to the con-side opinions and improve the document"
 ```
 **Output:** 
-- `analysis_output/round_1_version_diff.md` (changes made)
-- `analysis_output/[document_name]_v1.1.md` (improved document)
+- `[document_name]_output/round_1_version_diff.md` (changes made)
+- `[document_name]_output/[document_name]_v1.1.md` (improved document)
 
 #### Step 3: Continue or Stop
 ```bash
@@ -220,7 +220,7 @@ Result: STOP - Quality threshold achieved
 - "Use the adversarial analysis system to improve this document"
 
 #### Files Not Generated
-**Problem:** Output files missing from analysis_output directory
+**Problem:** Output files missing from [document_name]_output directory
 **Solution:** Check that:
 - Claude Code has write permissions to the directory
 - Document is properly formatted and readable
@@ -251,7 +251,7 @@ Result: STOP - Quality threshold achieved
 #### Check System Status
 ```bash
 "List all available agents and their current status"
-"Show the contents of the analysis_output directory"
+"Show the contents of the [document_name]_output directory"
 ```
 
 ## Example Workflows

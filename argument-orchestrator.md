@@ -114,9 +114,9 @@ Round N:
 - **Termination Criteria Met**: Yes/No
 
 ### File Outputs Generated
-- `analysis_output/round_[N]_con_opinions.md`
-- `analysis_output/round_[N]_version_diff.md`  
-- `analysis_output/[document_name]_v[X.Y].md`
+- `[document_name]_output/round_[N]_con_opinions.md`
+- `[document_name]_output/round_[N]_version_diff.md`  
+- `[document_name]_output/[document_name]_v[X.Y].md`
 
 ### Next Actions
 [What happens in the next round or termination procedures]
