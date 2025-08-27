@@ -226,15 +226,18 @@ Each round must generate a detailed diff file showing:
 ```
 
 ### New Document Version File: `[document_name]_output/[document_name]_v[X.Y].md`
-Each round must generate an updated document version with all changes applied.
+Each round must generate an updated document version with all changes applied in the `[document_name]_output/` directory.
 
 ### Response Evaluation Process
-1. **Read con-side opinions** from `[document_name]_output/round_[N]_con_opinions.md`
-2. **Evaluate each opinion individually** for validity and importance
-3. **Make informed decisions** about which changes to implement
-4. **Document reasoning** for all accepted and rejected opinions
-5. **Generate new document version** with implemented changes
-6. **Create detailed diff file** showing exactly what changed and why
+1. **[Round 1 Only] Clean up existing output directory** to ensure fresh analysis:
+   - If `[document_name]_output/` exists, remove all files: `rm -rf [document_name]_output/*`
+   - Create/recreate the directory structure as needed
+2. **Read con-side opinions** from `[document_name]_output/round_[N]_con_opinions.md`
+3. **Evaluate each opinion individually** for validity and importance
+4. **Make informed decisions** about which changes to implement
+5. **Document reasoning** for all accepted and rejected opinions
+6. **Generate new document version** with implemented changes in the `[document_name]_output/` directory
+7. **Create detailed diff file** showing exactly what changed and why
 
 ## Success Criteria
 
